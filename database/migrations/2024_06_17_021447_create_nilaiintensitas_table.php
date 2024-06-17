@@ -8,15 +8,12 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('alternatifs', function (Blueprint $table) {
-            $table->id();
-            $table->string('kode');
-            $table->string('nama');
+        Schema::create('nilaiintensitas', function (Blueprint $table) {
+            $table->id('id_nilai');
+            $table->double('jum_nilai');
             $table->string('keterangan');
             $table->timestamps();
         });
@@ -24,11 +21,9 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('alternatifs');
+        Schema::dropIfExists('nilaiintensitas');
     }
 };

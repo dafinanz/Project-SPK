@@ -8,26 +8,23 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('spk_accounts', function (Blueprint $table) {
+        Schema::create('perbandingan_alternatifs', function (Blueprint $table) {
             $table->id();
-            $table->string('provider_id')->unique();
-            $table->string('provider_name');
+            $table->string('alternatif_id');
+            $table->string('kriteria_id');
+            $table->integer('bobot');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('spk_accounts');
+        Schema::dropIfExists('perbandingan_alternatifs');
     }
 };

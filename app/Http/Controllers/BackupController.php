@@ -36,11 +36,11 @@ class BackupController extends Controller
             Alternatif::updateOrCreate(
                 [
                     'kode' => $item['kode'],
-                    'nkk' => $item['nkk'],
-                    'nik' => $item['nik'],
+                    // 'nkk' => $item['nkk'],
+                    // 'nik' => $item['nik'],
                     'nama' => $item['nama'],
-                    'alamat' => $item['alamat'],
-                    'nomor' => $item['nomor'],
+                    // 'alamat' => $item['alamat'],
+                    // 'nomor' => $item['nomor'],
                 ]
             );
         }

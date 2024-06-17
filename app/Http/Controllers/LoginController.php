@@ -1,59 +1,10 @@
 <?php
 
-// namespace App\Http\Controllers;
-
-// use Illuminate\Support\Facades\Auth;
-// use Illuminate\Http\Request;
-// use RealRashid\SweetAlert\Toaster;
-
-// class LoginController extends Controller
-// {
-//     public function login()
-//     {
-//         return view('login.login');
-//     }
-//     public function postlogin(Request $request)
-//     {
-//         $remember = $request->has('remember') ? true : false;
-//         if (auth()->attempt(['name' => $request->name, 'password' => $request->password], $remember)) {
-//             $user = Auth::user();
-//         } else {
-//             alert()->error('Email atau Password Salah!', 'Gagal');
-//             return back();
-//         }
-//         $this->validate($request, [
-//             'name' => 'required',
-//             'password' => 'required|min:8'
-//         ], [
-//             'name.required' => 'Username Harus Diisi!',
-//             'password.required' => 'Password Harus Diisi!',
-//             'password.min' => 'Password Minimal 8 Karakter!'
-//         ]);
-//         $infologin = [
-//             'name' => $request->name,
-//             'password' => $request->password
-//         ];
-
-//         if (Auth::attempt($infologin)) {
-//             return redirect('/');
-//         } else {
-//             return redirect('login')->withErrors(['Pesan' => 'Username atau Password Salah!']);
-//         }
-//     }
-//     public function logout(Request $request)
-//     {
-//         Auth::logout();
-//         $request->session()->invalidate();
-//         $request->session()->regenerateToken();
-//         return redirect('login');
-//     }
-// }
-
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
+use RealRashid\SweetAlert\Toaster;
 
 class LoginController extends Controller
 {
@@ -61,10 +12,15 @@ class LoginController extends Controller
     {
         return view('login.login');
     }
-
-    public function postLogin(Request $request)
+    public function postlogin(Request $request)
     {
-        // Validasi input
+        $remember = $request->has('remember') ? true : false;
+        if (auth()->attempt(['name' => $request->name, 'password' => $request->password], $remember)) {
+            $user = Auth::user();
+        } else {
+            alert()->error('Email atau Password Salah!', 'Gagal');
+            return back();
+        }
         $this->validate($request, [
             'name' => 'required',
             'password' => 'required|min:8'
@@ -73,21 +29,17 @@ class LoginController extends Controller
             'password.required' => 'Password Harus Diisi!',
             'password.min' => 'Password Minimal 8 Karakter!'
         ]);
-
-        $remember = $request->has('remember') ? true : false;
         $infologin = [
             'name' => $request->name,
             'password' => $request->password
         ];
 
-        if (Auth::attempt($infologin, $remember)) {
+        if (Auth::attempt($infologin)) {
             return redirect('/');
         } else {
-            Alert::error('Email atau Password Salah!', 'Gagal');
-            return back()->withErrors(['Pesan' => 'Username atau Password Salah!']);
+            return redirect('login')->withErrors(['Pesan' => 'Username atau Password Salah!']);
         }
     }
-
     public function logout(Request $request)
     {
         Auth::logout();

@@ -8,26 +8,22 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('nilaiIntensitas', function (Blueprint $table) {
-            $table->id('id_nilai');
-            $table->double('jum_nilai');
-            $table->string('keterangan');
+        Schema::create('alternatifs', function (Blueprint $table) {
+            $table->id();
+            $table->string('kode');
+            $table->string('nama');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        //
+        Schema::dropIfExists('alternatifs');
     }
 };

@@ -28,10 +28,6 @@ use Route as GlobalRoute;
 | contains the "web" middleware group. Now create something great!
 |
 */
-#Login
-// Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
-// Route::post('/login/action', [LoginController::class, 'postLogin'])->middleware('guest');
-// Route::get('/login/logout', [LoginController::class, 'logout'])->middleware(['auth']);
 
 // Login
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
@@ -40,45 +36,27 @@ Route::get('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 
 #Dashboard
-// Route::get('/', [HomeController::class, 'index'])->middleware(['auth'])->name('home');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 #Kriteria
-// Route::resource('kriteria', KriteriaController::class)->middleware(['auth']);
 Route::resource('kriteria', KriteriaController::class);
 
 #Crips
-// Route::resource('crips', CripsController::class)->middleware(['auth']);
 Route::resource('crips', CripsController::class);
 
 #Alternatif
-// Route::resource('alternatif', AlternatifController::class)->middleware(['auth']);
 Route::resource('alternatif', AlternatifController::class);
 #Hapus Semua Data Alternatif
-// Route::post('/alternatif/hapus_semua',  [AlternatifController::class, 'hapusSemua'])->middleware(['auth'])->name('alternatif.hapus_semua');
 Route::post('/alternatif/hapus_semua',  [AlternatifController::class, 'hapusSemua'])->name('alternatif.hapus_semua');
 
-
-#Register
-Route::resource('register', RegisterController::class)->middleware(['auth', 'admin']);
-
 #nilaiIntensitas
-// Route::resource('nilaiIntensitas', IntensitasController::class)->middleware(['auth']);
 Route::resource('nilaiIntensitas', IntensitasController::class);
 
 #perhitungan
-// Route::resource('perhitungan', PerhitunganController::class)->middleware(['auth']);
-// Route::get('/proses', 'App\Http\Controllers\PerhitunganController@proses')->name('perhitungan.proses')->middleware(['auth']);
 Route::resource('perhitungan', PerhitunganController::class);
 Route::get('/proses', 'App\Http\Controllers\PerhitunganController@proses')->name('perhitungan.proses');
 
 #Hasil
-// Route::get('/hasil', [HasilController::class, 'index'])->middleware(['auth'])->name('hasil');
-// Route::get('/hasil/cetak', [HasilController::class, 'cetak'])->middleware(['auth'])->name('hasil.cetak');
-// Route::get('/hasil/cetak/dwonload', [HasilController::class, 'pdfDwonload'])->middleware(['auth'])->name('hasil.pdfDwonload');
-// Route::get('/hasil/excel', [HasilController::class, 'excel'])->middleware(['auth'])->name('hasil.excel');
-// Route::get('/hasil/excel/dwonload', [HasilController::class, 'excelDwonload'])->middleware(['auth'])->name('hasil.excelDwonload');
-// Route::get('/hasil/cari', [HasilController::class, 'cari'])->middleware(['auth'])->name('hasil.cari');
 Route::get('/hasil', [HasilController::class, 'index'])->name('hasil');
 Route::get('/hasil/cetak', [HasilController::class, 'cetak'])->name('hasil.cetak');
 Route::get('/hasil/cetak/dwonload', [HasilController::class, 'pdfDwonload'])->name('hasil.pdfDwonload');
@@ -91,19 +69,10 @@ Route::get('/hasil/cari', [HasilController::class, 'cari'])->name('hasil.cari');
 Route::resource('about', AboutController::class);
 
 //Backup
-// Route::post('/cadangkan', [BackupController::class, 'cadangkanAlternatif'])->middleware(['auth'])->name('cadangkan');
-// Route::get('/cadangkan', [HistoryController::class, 'riwayat'])->middleware(['auth'])->name('riwayat');
-// Route::get('/cadangan-alternatif', [HistoryController::class, 'riwayatAlternatif'])->middleware(['auth'])->name('riwayat.tampil');
 Route::post('/cadangkan', [BackupController::class, 'cadangkanAlternatif'])->name('cadangkan');
 Route::get('/cadangkan', [HistoryController::class, 'riwayat'])->name('riwayat');
 Route::get('/cadangan-alternatif', [HistoryController::class, 'riwayatAlternatif'])->name('riwayat.tampil');
 
 //Upload JSON
-// Route::get('/upload', [BackupController::class, 'upload'])->middleware(['auth'])->name('upload.form');
-// Route::post('/upload/file', [BackupController::class, 'uploadAlternatif'])->middleware(['auth'])->name('uploadFile');
 Route::get('/upload', [BackupController::class, 'upload'])->name('upload.form');
 Route::post('/upload/file', [BackupController::class, 'uploadAlternatif'])->name('uploadFile');
-
-#Profil
-// Route::resource('profil', ProfilController::class)->middleware(['auth']);
-Route::resource('profil', ProfilController::class);

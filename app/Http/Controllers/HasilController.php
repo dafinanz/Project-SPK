@@ -21,11 +21,11 @@ class HasilController extends Controller
         //mengambil nilai input dari form pemfilteran
 
         //mengambil data NKK dari database alternatif kemudian ditampilkan dengan tabel pemeringkatan
-        $pemeringkatans = Pemeringkatan::join('cadangan_alternatif', 'pemeringkatans.alternatif_id', '=', 'cadangan_alternatif.kode')
+        $pemeringkatans = Pemeringkatan::join('alternatifs', 'pemeringkatans.alternatif_id', '=', 'alternatifs.kode')
             // ->select('cadangan_alternatif.nkk', 'cadangan_alternatif.nik', 'cadangan_alternatif.alamat', 'cadangan_alternatif.nomor', 'cadangan_alternatif.created_at', 'pemeringkatans.*')
             ->orderBy('bobot', 'DESC')
             ->take($jumlahOrang)
-            ->whereYear('cadangan_alternatif.created_at', 'like', '%' . $tahun . '%')
+            ->whereYear('alternatifs.created_at', 'like', '%' . $tahun . '%')
             ->get();
         // dd($pemeringkatans);
 

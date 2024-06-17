@@ -8,27 +8,24 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('sub_kriterias', function (Blueprint $table) {
-            $table->id();
+        Schema::create('kriterias', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->integer('id_kriteria');
+            $table->primary('id_kriteria');
             $table->string('kode_kriteria');
-            $table->string('nama_sub');
-            $table->double('bobot');
+            $table->string('nama_kriteria');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('sub_kriterias');
+        Schema::dropIfExists('kriterias');
     }
 };
