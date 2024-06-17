@@ -42,38 +42,25 @@ use Carbon\Carbon;
                 <table class="table table-bordered table-striped table-hover">
                     <thead class="text-center" style="vertical-align:middle;">
                         <tr>
-                            <th colspan="8">Daftar Warga Yang Mendapatkan Bantuan</th>
+                            <th colspan="8">Hasil Peringkat</th>
                         </tr>
                         <tr>
                             <th rowspan="2">No</th>
                             <th rowspan="2">Kode</th>
-                            {{-- <th rowspan="2">Tahun</th> --}}
-                            {{-- <th rowspan="2">NKK</th> --}}
-                            {{-- <th rowspan="2">NIK</th> --}}
                             <th rowspan="2">Nama</th>
-                            {{-- <th rowspan="2">Alamat</th> --}}
                             <th rowspan="2">Bobot</th>
-                            {{-- <th rowspan="2">Konfirmasi</th> --}}
                         </tr>
                     </thead>
                     <tbody class="text-center" style="vertical-align:middle;">
-                        @php
+                        {{-- @php
                         $tanggal = Carbon::now()->format('m Y');
-                        @endphp
+                        @endphp --}}
                         @foreach($pemeringkatans as $pemeringkatan => $data)
                         <tr>
                             <td>{{ $loop->iteration}}</td>
                             <td>{{ $data->alternatif_id }}</td>
-                            {{-- <td>{{ $data->created_at->year}}</td> --}}
-                            {{-- <td>{{ $data->nkk }}</td> --}}
-                            {{-- <td>{{ $data->nik }}</td> --}}
                             <td>{{ $data->nama }}</td>
-                            {{-- <td class="text-left">{{ $data->alamat }}</td> --}}
                             <td>{{ $data->bobot }}</td>
-                            {{-- <td><a class="btn btn-success" href="https://wa.me/{{$data->nomor}}?text=Assalamualaikum, Bpk/Ibu {{$data->nama}}, Anda telah dinyatakan berhak menerima BLT-DD bulan {{$tanggal}} Mohon mengambil BLT-DD di Balai Desa Gedongboyountung pada hari besok sesuai jam operasional. Terima kasih.">
-                                    <i class="fa fa-whatsapp"></i>
-                                </a>
-                            </td> --}}
                         </tr>
                         @endforeach
                     </tbody>

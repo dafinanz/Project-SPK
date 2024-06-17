@@ -18,7 +18,7 @@ class MatriksValueController extends Controller
         $alternatifs = alternatif::where('nama', 'LIKE', "%" . $cari . "%")
             // ->orWhere('kode', 'LIKE', "%" . $cari . "%")
             // ->orWhere('nkk', 'LIKE', "%" . $cari . "%")
-            ->orderBy('id', 'asc')->paginate(20);
+            ->orderBy('id', 'asc')->paginate(100);
 
         return view('matriks_value.matriks_value', compact('kriterias', 'alternatifs'));
     }
