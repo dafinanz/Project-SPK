@@ -77,7 +77,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="panel panel-default">
+                    {{-- <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="form-group">
                                 <p>Input Bobot Nilai Kriteria Untuk Masing Masing Alternatif</p>
@@ -122,7 +122,45 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </div> --}}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="form-group">
+                                <p>Input Bobot Nilai Kriteria Untuk Masing Masing Alternatif</p>
+                            </div>
+                        </div>
+                        <div class="table-responsive" id="tableContainer">
+                            <table class="table table-bordered table-striped table-hover" id="table1">
+                                <thead class="text-center" style="vertical-align:middle;">
+                                    <tr>
+                                        <th>Alternatif</th>
+                                        @foreach($kriterias as $kriteria)
+                                            <th class="text-center" style="vertical-align:middle;">{{$kriteria->nama_kriteria}}</th>
+                                        @endforeach
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center" style="vertical-align:middle;">
+                                    @php
+                                        $no = 0;
+                                        $nilaiSebelumnya = null;
+                                    @endphp
+                                    @foreach($alternatifs as $alternatif)
+                                        <tr>
+                                            <td class="text-left" style="vertical-align:middle;">
+                                                <input type="hidden" name="alternatif[{{$alternatif->nama}}]" value="{{$alternatif->kode}}">
+                                                {{$alternatif->nama}}
+                                            </td>
+                                            @foreach($kriterias as $kriteria)
+                                                <td class="text-center" style="vertical-align:middle;">
+                                                    <input type="number" class="form-control form-control-sm" name="bobot[{{$alternatif->kode}}][{{$kriteria->kode_kriteria}}]" value="{{ old('bobot') }}">
+                                                </td>
+                                            @endforeach
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>                    
                     <button type="submit" class="btn btn-primary btn-sm" id="showTable2">
                         Normalisasi
                     </button>
