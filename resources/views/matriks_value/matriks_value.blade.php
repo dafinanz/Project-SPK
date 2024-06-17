@@ -21,6 +21,7 @@
     </div>
     <!--/.main-->
 </div>
+
 <div class="wow fadeIn">
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         <div class="row">
@@ -38,6 +39,7 @@
                         <form action="{{ route('matriks_value.update_selection_with_values') }}" method="POST">
                             @csrf
                             @method('patch')
+                            <input type="hidden" name="cari" value="{{ request('cari') }}">
                             <table class="table table-bordered table-striped table-hover" id="table1">
                                 <thead class="text-center" style="vertical-align:middle;">
                                     <tr>
@@ -110,4 +112,14 @@
         xhr.send();
     });
 </script> -->
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) { 
+            var scrollpos = localStorage.getItem('scrollpos');
+            if (scrollpos) window.scrollTo(0, scrollpos);
+        });
+
+        window.onbeforeunload = function(e) {
+            localStorage.setItem('scrollpos', window.scrollY);
+        };
+</script>
 @endsection

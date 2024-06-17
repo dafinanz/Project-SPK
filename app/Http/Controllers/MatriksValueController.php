@@ -14,11 +14,15 @@ class MatriksValueController extends Controller
         $kriterias = Kriteria::all();
         $alternatifs = Alternatif::all();
 
+        // $cari = $request->cari;
+        // $alternatifs = alternatif::where('nama', 'LIKE', "%" . $cari . "%")
+        //     // ->orWhere('kode', 'LIKE', "%" . $cari . "%")
+        //     ->orderBy('id', 'asc')->paginate(100);
+        
         $cari = $request->cari;
-        $alternatifs = alternatif::where('nama', 'LIKE', "%" . $cari . "%")
-            // ->orWhere('kode', 'LIKE', "%" . $cari . "%")
-            // ->orWhere('nkk', 'LIKE', "%" . $cari . "%")
-            ->orderBy('id', 'asc')->paginate(100);
+        $alternatifs = Alternatif::where('nama', 'LIKE', "%" . $cari . "%")
+        ->orderBy('id', 'asc')
+        ->get();
 
         return view('matriks_value.matriks_value', compact('kriterias', 'alternatifs'));
     }
