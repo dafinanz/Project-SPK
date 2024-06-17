@@ -9,10 +9,16 @@ use App\Models\PerbandinganAlternatif;
 
 class MatriksValueController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $kriterias = Kriteria::all();
         $alternatifs = Alternatif::all();
+
+        $cari = $request->cari;
+        $alternatifs = alternatif::where('nama', 'LIKE', "%" . $cari . "%")
+            // ->orWhere('kode', 'LIKE', "%" . $cari . "%")
+            // ->orWhere('nkk', 'LIKE', "%" . $cari . "%")
+            ->orderBy('id', 'asc')->paginate(20);
 
         return view('matriks_value.matriks_value', compact('kriterias', 'alternatifs'));
     }

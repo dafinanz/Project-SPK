@@ -27,9 +27,12 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div class="form-group">
-                            <p>Input Bobot Nilai Kriteria Untuk Masing Masing Alternatif</p>
-                        </div>
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <input id="floatingInputGroup1" name="cari" type="text" class="form-control" placeholder="Cari">
+                                <button class="input-group-text btn btn-primary">Cari</button>
+                            </div>
+                        </form>
                     </div>
                     <div class="table-responsive" id="tableContainer">
                         <form action="{{ route('matriks_value.update_selection_with_values') }}" method="POST">

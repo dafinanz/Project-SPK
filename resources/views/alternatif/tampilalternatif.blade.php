@@ -36,30 +36,6 @@
                                 <input id="floatingInputGroup1" name="cari" type="text" class="form-control" placeholder="Cari">
                                 <button class="input-group-text btn btn-primary">Cari</button>
                             </div>
-                            {{-- <ul class="pull-right panel-settings panel-button-tab-right">
-                                <li class="dropdown">
-                                    <a class="pull-right dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <em class="fa fa-cogs"></em>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li>
-                                            <ul class="dropdown-settings">
-                                                <li>
-                                                    <a href="{{route('riwayat')}}">
-                                                        <em class="fa fa-upload"></em> Cadangkan Alternatif
-                                                    </a>
-                                                </li>
-                                                <li class="divider"></li>
-                                                <li>
-                                                    <a href="{{route('riwayat.tampil')}}">
-                                                        <em class="fa fa-bars"></em> Lihat Riwayat
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul> --}}
                         </form>
                     </div>
                     {{-- <div class="table-responsive">

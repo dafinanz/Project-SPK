@@ -333,7 +333,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="form-group">
-                            <p> Konversi Bobot Kirteria Dari Masing-Masing Alternatif</p>
+                            <p> Konversi Bobot Kriteria Dari Masing-Masing Alternatif</p>
                         </div>
                     </div>
                     <div class="table-responsive" id="tableContainer">
@@ -364,7 +364,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="form-group">
-                            <p> Bobot Kirteria Dengan Alternatif</p>
+                            <p> Bobot Kriteria Dengan Alternatif</p>
                         </div>
                     </div>
                     <div class="table-responsive" id="tableContainer">
@@ -397,7 +397,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="form-group">
-                            <p>Pemeringkatan</p>
+                            <p>Peringkat</p>
                         </div>
                     </div>
                     <div class="table-responsive" id="tableContainer">
