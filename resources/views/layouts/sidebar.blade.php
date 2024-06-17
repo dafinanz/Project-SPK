@@ -39,6 +39,12 @@
                         Nilai Bobot Kriteria
                     </a>
                 </li>
+                <li>
+                    <a class="{{ request()->is('matriks_value*') ? 'active' : '' }}" href="{{ route('matriks_value.index') }}">
+                        <span class="fa fa-user-o">&nbsp;</span>
+                        Matriks Value
+                    </a>
+                </li>                
             </ul>
         </li>
         <li class="{{ request()->is('perhitungan*') ? 'active' : '' }}"><a href="{{route ('perhitungan.index') }}"><em class="fa fa-calculator">&nbsp;</em> Perhitungan</a></li>

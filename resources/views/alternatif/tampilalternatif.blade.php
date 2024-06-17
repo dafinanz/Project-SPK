@@ -111,7 +111,7 @@
                                 </tr>
                                 <tr>
                                     <th>Edit</th>
-                                    <th>Add/Remove</th>
+                                    {{-- <th>Add/Remove</th> --}}
                                     <th>Delete</th>
                                 </tr>
                             </thead>
@@ -127,7 +127,7 @@
                                             <i class="fa fa-edit"></i> Edit
                                         </a>
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         <form action="{{ route('alternatif.update_selection', $a->id) }}" method="POST">
                                             @csrf
                                             @method('patch')
@@ -141,7 +141,7 @@
                                                 </button>
                                             @endif
                                         </form>
-                                    </td>
+                                    </td> --}}
                                     <td>
                                         <form action="{{ route('alternatif.destroy', $a->id) }}" method="POST">
                                             @csrf

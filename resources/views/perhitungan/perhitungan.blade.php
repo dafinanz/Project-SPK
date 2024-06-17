@@ -151,8 +151,16 @@
                                                 {{$alternatif->nama}}
                                             </td>
                                             @foreach($kriterias as $kriteria)
-                                                <td class="text-center" style="vertical-align:middle;">
+                                                {{-- <td class="text-center" style="vertical-align:middle;">
                                                     <input type="number" class="form-control form-control-sm" name="bobot[{{$alternatif->kode}}][{{$kriteria->kode_kriteria}}]" value="{{ old('bobot') }}">
+                                                </td> --}}
+                                                <td class="text-center" style="vertical-align:middle;">
+                                                    @php
+                                                        $bobotValue = App\Models\PerbandinganAlternatif::where('alternatif_id', $alternatif->id)
+                                                            ->where('kriteria_id', $kriteria->kode_kriteria)
+                                                            ->value('bobot');
+                                                    @endphp
+                                                    <input type="number" class="form-control form-control-sm" name="bobot[{{$alternatif->kode}}][{{$kriteria->kode_kriteria}}]" value="{{ old('bobot.' . $alternatif->kode . '.' . $kriteria->kode_kriteria, $bobotValue) }}">
                                                 </td>
                                             @endforeach
                                         </tr>

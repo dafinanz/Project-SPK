@@ -7,7 +7,7 @@ use App\Models\nilaiintensitas;
 use App\Models\perbandingan_kriteria;
 use App\Models\alternatif;
 use App\Models\sub_kriteria;
-use App\Models\perbandingan_alternatif;
+use App\Models\PerbandinganAlternatif;
 use App\Models\pemeringkatan;
 
 use Illuminate\Http\Request;
@@ -57,7 +57,7 @@ class PerhitunganController extends Controller
         $perbandingan_kriterias = $request->input('nilai');
 
         $sub_kriterias = sub_kriteria::all();
-        $perbandingan_alternatifs = perbandingan_alternatif::all();
+        $perbandingan_alternatifs = PerbandinganAlternatif::all();
         $alternatifs = alternatif::all();
 
         //Mendapatkan daftar semua kriteria yang tersedia
@@ -422,7 +422,7 @@ class PerhitunganController extends Controller
         foreach ($bobotValues as $alternatifId => $kriteriaBobots) {
             foreach ($kriteriaBobots as $kriteriaId => $bobot) {
                 // Cari entitas yang sesuai dengan alternatif_id dan kriteria_id
-                $perbandingan = perbandingan_alternatif::where('alternatif_id', $alternatifId)
+                $perbandingan = PerbandinganAlternatif::where('alternatif_id', $alternatifId)
                     ->where('kriteria_id', $kriteriaId)
                     ->first();
 
@@ -432,7 +432,7 @@ class PerhitunganController extends Controller
                     $perbandingan->save();
                 } else {
                     // Jika entitas belum ada, buat data baru
-                    perbandingan_alternatif::create([
+                    PerbandinganAlternatif::create([
                         'alternatif_id' => $alternatifId,
                         'kriteria_id' => $kriteriaId,
                         'bobot' => $bobot,

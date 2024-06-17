@@ -16,6 +16,7 @@ use App\Http\Controllers\PerhitunganController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BackupController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\MatriksValueController;
 use Route as GlobalRoute;
 
 /*
@@ -52,6 +53,10 @@ Route::patch('/alternatif/update-selection/{id}', [AlternatifController::class, 
 
 #nilaiIntensitas
 Route::resource('nilaiIntensitas', IntensitasController::class);
+
+#matriksValue
+Route::get('/matriks-value', [MatriksValueController::class, 'index'])->name('matriks_value.index');
+Route::patch('/matriks-value/update-selection-with-values', [MatriksValueController::class, 'updateSelectionWithValues'])->name('matriks_value.update_selection_with_values');
 
 #perhitungan
 Route::resource('perhitungan', PerhitunganController::class);
