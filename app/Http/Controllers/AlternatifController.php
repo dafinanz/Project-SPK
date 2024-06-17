@@ -19,7 +19,7 @@ class AlternatifController extends Controller
     {
         $cari = $request->cari;
         $alternatifs = alternatif::where('nama', 'LIKE', "%" . $cari . "%")
-            // ->orWhere('nik', 'LIKE', "%" . $cari . "%")
+            ->orWhere('kode', 'LIKE', "%" . $cari . "%")
             // ->orWhere('nkk', 'LIKE', "%" . $cari . "%")
             ->orderBy('id', 'asc')->paginate(20);
         return view('alternatif.tampilalternatif', compact('alternatifs'));
@@ -107,21 +107,13 @@ class AlternatifController extends Controller
     {
         $this->validate($request, [
             'kode' => 'required',
-            // 'nkk' => 'required',
-            // 'nik' => 'required',
             'nama' => 'required',
-            // 'alamat' => 'required',
-            // 'nomor' => 'required|unique:cadangan_alternatif,nomor,number',
         ]);
 
         $alternatifs = Alternatif::find($id);
         $alternatifs->update([
             'kode' => $request->kode,
-            // 'nkk' => $request->nkk,
-            // 'nik' => $request->nik,
             'nama' => $request->nama,
-            // 'alamat' => $request->alamat,
-            // 'nomor' => $request->nomor
         ]);
 
         if ($alternatifs) {
@@ -131,6 +123,15 @@ class AlternatifController extends Controller
             Alert::error('Alternatif Gagal Diubah', 'Maaf');
             return redirect()->route('alternatif.edit');
         }
+    }
+
+    public function updateSelection($id)
+    {
+        $alternatif = Alternatif::findOrFail($id);
+        $alternatif->is_selected = !$alternatif->is_selected;
+        $alternatif->save();
+
+        return redirect()->route('alternatif.index')->with('success', 'Alternatif updated successfully.');
     }
 
     /**

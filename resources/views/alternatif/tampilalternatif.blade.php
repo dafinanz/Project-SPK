@@ -62,18 +62,13 @@
                             </ul> --}}
                         </form>
                     </div>
-                    <div class="table-responsive">
+                    {{-- <div class="table-responsive">
                         <table class="table table-bordered table-striped table-hover">
                             <thead class="text-center" style="vertical-align:middle;">
                                 <tr>
                                     <th rowspan="2">No</th>
-                                    {{-- <th rowspan="2">Tahun</th> --}}
-                                    {{-- <th rowspan="2">NKK</th> --}}
-                                    {{-- <th rowspan="2">NIK</th> --}}
                                     <th rowspan="2">Kode Alternatif</th>
                                     <th rowspan="2">Nama Alternatif</th>
-                                    {{-- <th rowspan="2">Alamat</th> --}}
-                                    {{-- <th rowspan="2">Nomor Hp</th> --}}
                                     <th colspan="2">Action</th>
                                 </tr>
                                 <tr>
@@ -86,13 +81,8 @@
                                 <tr>
                                     <input type="hidden" class="delete_id" value="{{ $a->id }}">
                                     <td>{{ $loop->iteration }}</td>
-                                    {{-- <td>{{$a->created_at->year }}</td> --}}
-                                    {{-- <td>{{$a->nkk}}</td> --}}
-                                    {{-- <td>{{ $a->nik }}</td> --}}
                                     <td>{{ $a->kode }}</td>
                                     <td>{{ $a->nama }}</td>
-                                    {{-- <td>{{ $a->alamat }}</td> --}}
-                                    {{-- <td>{{ $a->nomor }}</td> --}}
                                     <td>
                                         <a href="{{ route('alternatif.edit', $a->id) }}" class="btn btn-warning">
                                             <i class="fa fa-edit"></i> Edit
@@ -109,7 +99,62 @@
                                 @endforeach
                             </tbody>
                         </table>
-                    </div>
+                    </div> --}}
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead class="text-center" style="vertical-align:middle;">
+                                <tr>
+                                    <th rowspan="2">No</th>
+                                    <th rowspan="2">Kode Alternatif</th>
+                                    <th rowspan="2">Nama Alternatif</th>
+                                    <th colspan="3">Action</th>
+                                </tr>
+                                <tr>
+                                    <th>Edit</th>
+                                    <th>Add/Remove</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center" style="vertical-align:middle;">
+                                @foreach ($alternatifs as $a)
+                                <tr>
+                                    <input type="hidden" class="delete_id" value="{{ $a->id }}">
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $a->kode }}</td>
+                                    <td>{{ $a->nama }}</td>
+                                    <td>
+                                        <a href="{{ route('alternatif.edit', $a->id) }}" class="btn btn-warning">
+                                            <i class="fa fa-edit"></i> Edit
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('alternatif.update_selection', $a->id) }}" method="POST">
+                                            @csrf
+                                            @method('patch')
+                                            @if($a->is_selected)
+                                                <button type="submit" class="btn btn-danger">
+                                                    <i class="fa fa-times"></i> Remove
+                                                </button>
+                                            @else
+                                                <button type="submit" class="btn btn-success">
+                                                    <i class="fa fa-check"></i> Add
+                                                </button>
+                                            @endif
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('alternatif.destroy', $a->id) }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-danger btndelete"><i class="fa fa-trash"></i> Hapus</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>                    
+                    
                     <div class="col-md-6 my-12">
                         {{ $alternatifs->links() }}
                     </div>

@@ -48,6 +48,7 @@ Route::resource('crips', CripsController::class);
 Route::resource('alternatif', AlternatifController::class);
 #Hapus Semua Data Alternatif
 Route::post('/alternatif/hapus_semua',  [AlternatifController::class, 'hapusSemua'])->name('alternatif.hapus_semua');
+Route::patch('/alternatif/update-selection/{id}', [AlternatifController::class, 'updateSelection'])->name('alternatif.update_selection');
 
 #nilaiIntensitas
 Route::resource('nilaiIntensitas', IntensitasController::class);

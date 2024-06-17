@@ -25,7 +25,8 @@ class PerhitunganController extends Controller
         $kriterias = kriteria::all();
         $nilaiintensitas = nilaiintensitas::all();
         $perbandingan_kriterias = perbandingan_kriteria::all();
-        $alternatifs = alternatif::all();
+        // $alternatifs = alternatif::all();
+        $alternatifs = alternatif::where('is_selected', true)->get();
         $sub_kriterias = sub_kriteria::all();
         return view('perhitungan.perhitungan', compact('kriterias', 'nilaiintensitas', 'perbandingan_kriterias', 'alternatifs', 'sub_kriterias'));
     }
