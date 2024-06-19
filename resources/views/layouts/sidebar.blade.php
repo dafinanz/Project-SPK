@@ -16,10 +16,10 @@
             </a>
         </li>
         <li class="{{ request()->is('kriteria*') ? 'active' : '' }}"><a href="{{route ('kriteria.index') }}"><em class="fa fa-cubes">&nbsp;</em> Kriteria</a></li>
-        <li class="{{ request()->is('alternatif*') ? 'active' : '' }}"><a href="{{route ('alternatif.index') }}"><em class="fa fa-user-o">&nbsp;</em> Alternatif</a></li>
-        <li class="{{ request()->is('nilaiIntensitas*') ? 'active' : '' }}"><a href="{{ route('nilaiIntensitas.index') }}"><em class="fa fa-user-o">&nbsp;</em> Nilai Intensitas</a></li>
-        <li class="{{ request()->is('crips*') ? 'active' : '' }}"><a href="{{ route('crips.index') }}"><em class="fa fa-user-o">&nbsp;</em> Bobot Kriteria</a></li>
-        <li class="{{ request()->is('matriks_value*') ? 'active' : '' }}"><a href="{{ route('matriks_value.index') }}"><em class="fa fa-user-o">&nbsp;</em> Nilai Bobot</a></li>
+        <li class="{{ request()->is('alternatif*') ? 'active' : '' }}"><a href="{{route ('alternatif.index') }}"><em class="fa fa-location-arrow">&nbsp;</em> Alternatif</a></li>
+        <li class="{{ request()->is('nilaiIntensitas*') ? 'active' : '' }}"><a href="{{ route('nilaiIntensitas.index') }}"><em class="fa fa-folder">&nbsp;</em> Nilai Intensitas</a></li>
+        <li class="{{ request()->is('crips*') ? 'active' : '' }}"><a href="{{ route('crips.index') }}"><em class="fa fa-pencil">&nbsp;</em> Bobot Kriteria</a></li>
+        <li class="{{ request()->is('matriks_value*') ? 'active' : '' }}"><a href="{{ route('matriks_value.index') }}"><em class="fa fa-database">&nbsp;</em> Nilai Bobot</a></li>
         {{-- <li class="parent">
             <a href="#sub-item-3" data-toggle="collapse" aria-expanded="false">
                 <em class="fa fa-navicon ">&nbsp;</em>
