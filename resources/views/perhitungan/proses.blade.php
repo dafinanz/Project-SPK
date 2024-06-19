@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <!-- Matriks Nilai Kriteria -->
-                <div class="panel panel-default">
+                {{-- <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="form-group">
                             <p>Matriks Nilai Kriteria</p>
@@ -152,15 +152,15 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div> --}}
                 <!-- Kotak Biru Infone Masse -->
-                <div class="alert alert-info" role="alert">
+                {{-- <div class="alert alert-info" role="alert">
                     @if($cr[$kriteria1] < 0.1) <p>Nilai Consistancy Ratio (CR) yang diperoleh adalah <strong>{{$cr[$kriteria1]}}</strong> . Nilai CR yang diperoleh <strong> ≤ 0,1 </strong> maka dapat disimpulkan bahwa matriks perbandingan berpasangan yang telah dibuat <strong> Sudah Dapat Diterima.</strong>
                         </p>
                         @else
                         <p>Nilai Consistancy Ratio (CR) yang diperoleh adalah <strong>{{$cr[$kriteria1]}}</strong>. Nilai CR yang diperoleh <strong> > 0,1 </strong> maka dapat disimpulkan bahwa matriks perbandingan berpasangan yang telah dibuat <strong> Tidak Dapat Diterima.</strong></p>
                         @endif
-                </div>
+                </div> --}}
                 <!-- Nilai  TFN -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
