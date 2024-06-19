@@ -21,10 +21,12 @@ class MatriksValueController extends Controller
         //     // ->orWhere('kode', 'LIKE', "%" . $cari . "%")
         //     ->orderBy('id', 'asc')->paginate(100);
         
-        $cari = $request->cari;
-        $alternatifs = Alternatif::where('nama', 'LIKE', "%" . $cari . "%")
-        ->orderBy('id', 'asc')
-        ->get();
+        // $cari = $request->cari;
+        $cari = $request->input('cari');
+
+        $alternatifs = Alternatif::when($cari, function ($query, $cari) {
+            return $query->where('nama', 'like', "%{$cari}%");
+        })->paginate(24);
 
         return view('matriks_value.matriks_value', compact('kriterias', 'alternatifs','sub_kriterias'));
     }
