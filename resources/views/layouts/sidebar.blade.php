@@ -1,12 +1,11 @@
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-    <div class="profile-sidebar">
+    {{-- <div class="profile-sidebar">
         <div class="profile-usertitle">
-            {{-- <div class="profile-usertitle-name"><a href="{{route ('profil.index')}}">{{ Auth::user()->name }}</div></a> --}}
             <div class="profile-usertitle-name">User</div></a>
             <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
         </div>
         <div class="clear"></div>
-    </div>
+    </div> --}}
     <div class="divider"></div>
 
     <ul class="nav menu">
@@ -19,7 +18,7 @@
         <li class="{{ request()->is('kriteria*') ? 'active' : '' }}"><a href="{{route ('kriteria.index') }}"><em class="fa fa-cubes">&nbsp;</em> Kriteria</a></li>
         <li class="{{ request()->is('alternatif*') ? 'active' : '' }}"><a href="{{route ('alternatif.index') }}"><em class="fa fa-user-o">&nbsp;</em> Alternatif</a></li>
         <li class="{{ request()->is('nilaiIntensitas*') ? 'active' : '' }}"><a href="{{ route('nilaiIntensitas.index') }}"><em class="fa fa-user-o">&nbsp;</em> Nilai Intensitas</a></li>
-        <li class="{{ request()->is('crips*') ? 'active' : '' }}"><a href="{{ route('crips.index') }}"><em class="fa fa-user-o">&nbsp;</em> Nilai Bobot Kriteria</a></li>
+        <li class="{{ request()->is('crips*') ? 'active' : '' }}"><a href="{{ route('crips.index') }}"><em class="fa fa-user-o">&nbsp;</em> Bobot Kriteria</a></li>
         <li class="{{ request()->is('matriks_value*') ? 'active' : '' }}"><a href="{{ route('matriks_value.index') }}"><em class="fa fa-user-o">&nbsp;</em> Nilai Bobot</a></li>
         {{-- <li class="parent">
             <a href="#sub-item-3" data-toggle="collapse" aria-expanded="false">
@@ -57,6 +56,6 @@
         <li class="{{ request()->is('register*') ? 'active' : '' }}"><a href="{{route ('register.index')}}"><em class="fa fa-address-book" aria-hidden="true">&nbsp;</em> Menu User</a></li>
         @endif --}}
         {{-- <li class="{{ request()->is('about*') ? 'active' : '' }}"><a href="{{route ('about.index') }}"><em class="fa fa-info-circle">&nbsp;</em> About Us</a></li> --}}
-        <li><a href="/login/logout"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+        {{-- <li><a href="/login/logout"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li> --}}
     </ul>
 </div><!--/.sidebar-->

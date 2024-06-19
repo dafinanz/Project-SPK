@@ -8,14 +8,14 @@
                 <li><a href="{{ route('home') }}">
                         <em class="fa fa-home"></em>
                     </a></li>
-                <li class="active">Nilai Sub Kriteria</li>
+                <li class="active">Bobot Kriteria</li>
             </ol>
         </div>
         <!--/.row-->
 
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header">Nilai Sub Kriteria</h2>
+                <h2 class="page-header">Bobot Kriteria</h2>
             </div>
         </div>
     </div>
@@ -41,7 +41,7 @@
                                 <tr>
                                     <th rowspan="2">No</th>
                                     <th rowspan="2">Kode Kriteria</th>
-                                    <th rowspan="2">Sub Kriteria</th>
+                                    <th rowspan="2">Nilai Kriteria</th>
                                     <th rowspan="2">Bobot</th>
                                     <th colspan="2">Action</th>
                                 </tr>

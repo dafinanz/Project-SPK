@@ -79,7 +79,7 @@
                     <div class="panel-heading">
                         <form class="form-inline">
                             <div class="form-group">
-                                <h4>Nilai Preferensi Sub-Kriteria</h4>
+                                <h4>Nilai Preferensi Bobot Kriteria</h4>
                             </div>
                         </form>
                     </div>
@@ -94,19 +94,23 @@
                             <tbody class="text-left" style="vertical-align:middle;">
                                 <tr>
                                     <td class="text-center">1</td>
-                                    <td>Sangat Penting</td>
+                                    <td>Sangat Baik</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">0,75</td>
-                                    <td>Penting</td>
+                                    <td>Baik</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">0,5</td>
                                     <td>Cukup</td>
                                 </tr>
                                 <tr>
+                                    <td class="text-center">0,25</td>
+                                    <td>Kurang</td>
+                                </tr>
+                                <tr>
                                     <td class="text-center">0</td>
-                                    <td>Kurang Penting</td>
+                                    <td>Sangat Kurang</td>
                                 </tr>
                             </tbody>
                         </table>
