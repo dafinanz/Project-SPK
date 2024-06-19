@@ -55,10 +55,11 @@
                     <label>bobot</label>
                     <select name="bobot" id="bobot" class="form-control input-lg" value="{{old('bobot', $sub_kriterias->bobot)}}">
                         <option value="">Bobot</option>
-                        <option value="1">1-Kurang Penting</option>
-                        <option value="2">2-Cukup Penting</option>
-                        <option value="3">3-Penting</option>
-                        <option value="4">4-Sangat Penting</option>
+                        <option value="0">0-Sangat Kurang</option>
+                        <option value="0.25">0.25-Kurang</option>
+                        <option value="0.5">0.5-Cukup</option>
+                        <option value="0.75">0.75-Baik</option>
+                        <option value="1">1-Sangat Baik</option>
                     </select>
                 </div>
             </div>

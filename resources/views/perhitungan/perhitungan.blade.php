@@ -74,6 +74,37 @@
                                     </tr>
                                     @endforeach
                                 </tbody>
+                                {{-- <tbody class="text-center" style="vertical-align:middle;">
+                                    @php
+                                    $no = 0;
+                                    @endphp
+                                    @foreach($kriterias as $kriteria)
+                                    <tr>
+                                        <td class="text-left" style="vertical-align:middle;">{{$kriteria->nama_kriteria}}</td>
+                                        @foreach($kriterias as $kriteria2)
+                                        <td class="text-center" style="vertical-align:middle;">
+                                            @if($kriteria->kode_kriteria == $kriteria2->kode_kriteria)
+                                            <input type="hidden" name="nilai[{{$kriteria->kode_kriteria}}][{{$kriteria2->kode_kriteria}}]" value="1">
+                                            1
+                                            @else
+                                            @if($kriteria->kode_kriteria > $kriteria2->kode_kriteria)
+                                            <input type="hidden" name="nilai[{{$kriteria->kode_kriteria}}][{{$kriteria2->kode_kriteria}}]" value="0">
+                                            0
+                                            @else
+                                            <select class="form-control form-control-sm" name="nilai[{{$kriteria->kode_kriteria}}][{{$kriteria2->kode_kriteria}}]">
+                                                @foreach ($nilaiintensitas as $n)
+                                                <option value="{{ $n->jum_nilai }}" {{ old('nilai.' . $kriteria->kode_kriteria . '.' . $kriteria2->kode_kriteria) == $n->jum_nilai ? 'selected' : '' }}>
+                                                    {{$n->jum_nilai}}-{{$n->keterangan}}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            @endif
+                                            @endif
+                                        </td>
+                                        @endforeach
+                                    </tr>
+                                    @endforeach
+                                </tbody>                                 --}}
                             </table>
                         </div>
                     </div>
@@ -160,8 +191,18 @@
                                                             ->where('kriteria_id', $kriteria->kode_kriteria)
                                                             ->value('bobot');
                                                     @endphp
-                                                    <input type="number" class="form-control form-control-sm" name="bobot[{{$alternatif->kode}}][{{$kriteria->kode_kriteria}}]" value="{{ old('bobot.' . $alternatif->kode . '.' . $kriteria->kode_kriteria, $bobotValue) }}">
+                                                    <input type="number" class="form-control form-control-sm" name="bobot[{{$alternatif->kode}}][{{$kriteria->kode_kriteria}}]" value="{{ old('bobot.' . $alternatif->kode . '.' . $kriteria->kode_kriteria, $bobotValue) }}" readonly>
+                                                    {{-- {{ old('bobot.' . $alternatif->kode . '.' . $kriteria->kode_kriteria, $bobotValue) }} --}}
                                                 </td>
+                                                {{-- <td class="text-center" style="vertical-align:middle;">
+                                                    <select class="form-control form-control-sm" name="bobot[{{$alternatif->kode}}][{{$kriteria->kode_kriteria}}]">
+                                                        @foreach ($sub_kriterias as $sub)
+                                                        @if($sub->kode_kriteria == $kriteria->kode_kriteria)
+                                                        {{$sub->bobot}}-{{$sub->nama_sub}}
+                                                        @endif
+                                                        @endforeach
+                                                    </select>
+                                                </td> --}}
                                             @endforeach
                                         </tr>
                                     @endforeach

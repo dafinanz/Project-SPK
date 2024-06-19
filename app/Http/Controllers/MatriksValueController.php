@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Kriteria;
 use App\Models\Alternatif;
 use App\Models\PerbandinganAlternatif;
+use App\Models\sub_kriteria;
 
 class MatriksValueController extends Controller
 {
@@ -13,6 +14,7 @@ class MatriksValueController extends Controller
     {
         $kriterias = Kriteria::all();
         $alternatifs = Alternatif::all();
+        $sub_kriterias = sub_kriteria::all();
 
         // $cari = $request->cari;
         // $alternatifs = alternatif::where('nama', 'LIKE', "%" . $cari . "%")
@@ -24,7 +26,7 @@ class MatriksValueController extends Controller
         ->orderBy('id', 'asc')
         ->get();
 
-        return view('matriks_value.matriks_value', compact('kriterias', 'alternatifs'));
+        return view('matriks_value.matriks_value', compact('kriterias', 'alternatifs','sub_kriterias'));
     }
 
     public function updateSelectionWithValues(Request $request)

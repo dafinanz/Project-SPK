@@ -50,6 +50,38 @@
                                         <th class="text-center" style="vertical-align:middle;">Action</th>
                                     </tr>
                                 </thead>
+                                {{-- <tbody class="text-center" style="vertical-align:middle;">
+                                    @foreach($alternatifs as $alternatif)
+                                        <tr>
+                                            <td class="text-left" style="vertical-align:middle;">
+                                                <input type="hidden" name="alternatif[{{$alternatif->kode}}]" value="{{$alternatif->kode}}">
+                                                {{$alternatif->nama}}
+                                            </td>
+                                            @foreach($kriterias as $kriteria)
+                                                <td class="text-center" style="vertical-align:middle;"> --}}
+                                                    {{-- @php
+                                                        $bobotValue = App\Models\PerbandinganAlternatif::where('alternatif_id', $alternatif->id)
+                                                            ->where('kriteria_id', $kriteria->kode_kriteria)
+                                                            ->value('bobot');
+                                                    @endphp
+                                                    <input type="number" class="form-control form-control-sm" name="bobot[{{$alternatif->kode}}][{{$kriteria->kode_kriteria}}]" value="{{ old('bobot.' . $alternatif->kode . '.' . $kriteria->kode_kriteria, $bobotValue) }}"> --}}
+                                                    {{-- <select class="form-control form-control-sm" name="bobot[{{$alternatif->kode}}][{{$kriteria->kode_kriteria}}]">
+                                                        @foreach ($sub_kriterias as $sub)
+                                                        @if($sub->kode_kriteria == $kriteria->kode_kriteria)
+                                                        <option value="{{old('bobot', $sub->bobot)}}">{{$sub->bobot}}-{{$sub->nama_sub}}</option>
+                                                        @endif
+                                                        @endforeach
+                                                    </select>
+                                                </td>
+                                            @endforeach
+                                            <td class="text-center" style="vertical-align:middle;">
+                                                <button type="submit" name="action" value="{{ $alternatif->is_selected ? 'remove_'.$alternatif->id : 'add_'.$alternatif->id }}" class="btn {{ $alternatif->is_selected ? 'btn-danger' : 'btn-success' }}">
+                                                    <i class="fa {{ $alternatif->is_selected ? 'fa-times' : 'fa-check' }}"></i> {{ $alternatif->is_selected ? 'Remove' : 'Add' }}
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody> --}}
                                 <tbody class="text-center" style="vertical-align:middle;">
                                     @foreach($alternatifs as $alternatif)
                                         <tr>
@@ -60,11 +92,19 @@
                                             @foreach($kriterias as $kriteria)
                                                 <td class="text-center" style="vertical-align:middle;">
                                                     @php
-                                                        $bobotValue = App\Models\PerbandinganAlternatif::where('alternatif_id', $alternatif->id)
+                                                        $selectedValue = App\Models\PerbandinganAlternatif::where('alternatif_id', $alternatif->id)
                                                             ->where('kriteria_id', $kriteria->kode_kriteria)
                                                             ->value('bobot');
                                                     @endphp
-                                                    <input type="number" class="form-control form-control-sm" name="bobot[{{$alternatif->kode}}][{{$kriteria->kode_kriteria}}]" value="{{ old('bobot.' . $alternatif->kode . '.' . $kriteria->kode_kriteria, $bobotValue) }}">
+                                                    <select class="form-control form-control-sm" name="bobot[{{$alternatif->kode}}][{{$kriteria->kode_kriteria}}]">
+                                                        @foreach ($sub_kriterias as $sub)
+                                                            @if($sub->kode_kriteria == $kriteria->kode_kriteria)
+                                                                <option value="{{ $sub->bobot }}" {{ old('bobot.' . $alternatif->kode . '.' . $kriteria->kode_kriteria, $selectedValue) == $sub->bobot ? 'selected' : '' }}>
+                                                                    {{$sub->bobot}}-{{$sub->nama_sub}}
+                                                                </option>
+                                                            @endif
+                                                        @endforeach
+                                                    </select>
                                                 </td>
                                             @endforeach
                                             <td class="text-center" style="vertical-align:middle;">
@@ -74,7 +114,7 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                </tbody>
+                                </tbody>                                
                             </table>
                         </form>
                     </div>

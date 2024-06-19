@@ -18,7 +18,10 @@
         </li>
         <li class="{{ request()->is('kriteria*') ? 'active' : '' }}"><a href="{{route ('kriteria.index') }}"><em class="fa fa-cubes">&nbsp;</em> Kriteria</a></li>
         <li class="{{ request()->is('alternatif*') ? 'active' : '' }}"><a href="{{route ('alternatif.index') }}"><em class="fa fa-user-o">&nbsp;</em> Alternatif</a></li>
-        <li class="parent">
+        <li class="{{ request()->is('nilaiIntensitas*') ? 'active' : '' }}"><a href="{{ route('nilaiIntensitas.index') }}"><em class="fa fa-user-o">&nbsp;</em> Nilai Intensitas</a></li>
+        <li class="{{ request()->is('crips*') ? 'active' : '' }}"><a href="{{ route('crips.index') }}"><em class="fa fa-user-o">&nbsp;</em> Nilai Bobot Kriteria</a></li>
+        <li class="{{ request()->is('matriks_value*') ? 'active' : '' }}"><a href="{{ route('matriks_value.index') }}"><em class="fa fa-user-o">&nbsp;</em> Nilai Bobot</a></li>
+        {{-- <li class="parent">
             <a href="#sub-item-3" data-toggle="collapse" aria-expanded="false">
                 <em class="fa fa-navicon ">&nbsp;</em>
                 Nilai Bobot
@@ -46,9 +49,9 @@
                     </a>
                 </li>                
             </ul>
-        </li>
+        </li> --}}
         <li class="{{ request()->is('perhitungan*') ? 'active' : '' }}"><a href="{{route ('perhitungan.index') }}"><em class="fa fa-calculator">&nbsp;</em> Perhitungan</a></li>
-        <li class="{{ request()->is('hasil*') ? 'active' : '' }}"><a href="{{route ('hasil') }}"><em class="fa fa-file-text-o">&nbsp;</em> Hasil</a></li>
+        {{-- <li class="{{ request()->is('hasil*') ? 'active' : '' }}"><a href="{{route ('hasil') }}"><em class="fa fa-file-text-o">&nbsp;</em> Hasil</a></li> --}}
         {{-- @if (Auth::user()->role != 1)
         @else
         <li class="{{ request()->is('register*') ? 'active' : '' }}"><a href="{{route ('register.index')}}"><em class="fa fa-address-book" aria-hidden="true">&nbsp;</em> Menu User</a></li>
