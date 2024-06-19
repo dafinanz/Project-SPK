@@ -28,7 +28,7 @@
         <div class="small-box bg-success">
             <div class="inner">
                 <div class="large"><strong>{{$alternatifs}}</strong></div>
-                <div class="text"><strong>Jumlah Penduduk Yang Terdaftar</strong></div>
+                <div class="text"><strong>Jumlah Lokasi - Jenis Tanaman</strong></div>
             </div>
             <div class="icon">
                 <i class="fa fa-address-book" aria-hidden="true"></i>
